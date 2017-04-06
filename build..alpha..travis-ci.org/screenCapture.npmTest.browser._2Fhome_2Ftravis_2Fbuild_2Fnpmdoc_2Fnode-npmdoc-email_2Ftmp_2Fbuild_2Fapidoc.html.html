@@ -1,0 +1,350 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/aheckmann/node-email#readme">email (v0.2.6)</a>
+</h1>
+<h4>A simple wrapper for sendmail.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.email">module email</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.email.Email">
+            function <span class="apidocSignatureSpan">email.</span>Email
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.email.isValidAddress">
+            function <span class="apidocSignatureSpan">email.</span>isValidAddress
+            <span class="apidocSignatureSpan">(rawAddress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">email.</span>timeout</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">email.</span>Email.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">email.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.email.Email">module email.Email</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.email.Email.Email">
+            function <span class="apidocSignatureSpan">email.</span>Email
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.email.Email.prototype">module email.Email.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.email.Email.prototype.send">
+            function <span class="apidocSignatureSpan">email.Email.prototype.</span>send
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.email.Email.prototype.valid">
+            function <span class="apidocSignatureSpan">email.Email.prototype.</span>valid
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">email.Email.prototype.</span>options</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">email.Email.prototype.</span>msg</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.email" id="apidoc.module.email">module email</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.email.Email" id="apidoc.element.email.Email">
+        function <span class="apidocSignatureSpan">email.</span>Email
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Email(config) {
+  config = config || {};
+
+  ; ['to'
+    ,'from'
+    ,'cc'
+    ,'bcc'
+    ,'replyTo'
+    ,'subject'
+    ,'body'
+    ,'bodyType'
+    ,'altText'
+    ,'timeout' ].forEach(function (key) {
+    this[key] = config[key];
+  }, this);
+
+  this.path = config.path || "sendmail";
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.email.isValidAddress" id="apidoc.element.email.isValidAddress">
+        function <span class="apidocSignatureSpan">email.</span>isValidAddress
+        <span class="apidocSignatureSpan">(rawAddress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isValidAddress(rawAddress) {
+  // john smith &lt;email@domain.com&gt; | email@domain.com
+  var address = capturergx.exec(rawAddress);
+  return address &amp;&amp; address[1]
+    ? emailrgx.test(address[1])
+    : emailrgx.test(rawAddress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.email.Email" id="apidoc.module.email.Email">module email.Email</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.email.Email.Email" id="apidoc.element.email.Email.Email">
+        function <span class="apidocSignatureSpan">email.</span>Email
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Email(config) {
+  config = config || {};
+
+  ; ['to'
+    ,'from'
+    ,'cc'
+    ,'bcc'
+    ,'replyTo'
+    ,'subject'
+    ,'body'
+    ,'bodyType'
+    ,'altText'
+    ,'timeout' ].forEach(function (key) {
+    this[key] = config[key];
+  }, this);
+
+  this.path = config.path || "sendmail";
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.email.Email.prototype" id="apidoc.module.email.Email.prototype">module email.Email.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.email.Email.prototype.send" id="apidoc.element.email.Email.prototype.send">
+        function <span class="apidocSignatureSpan">email.Email.prototype.</span>send
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (callback) {
+  if (!this.valid(callback)) return;
+  var sendmail = spawn(this.path, ['-i', '-t'], this.options);
+  sendmail.on('exit', function(code) {
+    var err = null;
+    if (code !== 0) {
+      err = new Error("Sendmail exited with code: " + code);
+    }
+
+    if (callback) {
+      callback(err);
+    }
+  });
+
+  sendmail.stdin.end(this.msg);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+, to:   "you@example.com"
+, subject: "Knock knock..."
+, body: "Who's there?"
+})
+
+// if callback is provided, errors will be passed into it
+// else errors will be thrown
+myMsg.<span class="apidocCodeKeywordSpan">send</span>(function(err){ ... })
+
+In this example we set the global `from` property so that all
+email is sent from the same address.
+
+var lib = require('path/to/email')
+  , Email = lib.Email;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.email.Email.prototype.valid" id="apidoc.element.email.Email.prototype.valid">
+        function <span class="apidocSignatureSpan">email.Email.prototype.</span>valid
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valid = function (callback) {
+  if (!requiredFieldsExist(this, callback)) return false;
+  if (!fieldsAreClean(this, callback)) return false;
+
+  var validatedHeaders = ['to','from','cc','bcc','replyTo']
+    , len = validatedHeaders.length
+    , self = this
+    , addresses
+    , addLen
+    , key;
+
+  while (len--) {
+    key = validatedHeaders[len];
+    if (self[key]) {
+      addresses = toArray(self[key]);
+      addLen = addresses.length;
+      while (addLen--) {
+        if (!isValidAddress(addresses[addLen])) {
+          return error("invalid email address : " + addresses[addLen], callback);
+        }
+      }
+    }
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.path = config.path || "sendmail";
+}
+
+
+Email.prototype = {
+
+send: function (callback) {
+  if (!this.<span class="apidocCodeKeywordSpan">valid</span>(callback)) return;
+  var sendmail = spawn(this.path, ['-i', '-t'], this.options);
+  sendmail.on('exit', function(code) {
+    var err = null;
+    if (code !== 0) {
+      err = new Error("Sendmail exited with code: " + code);
+    }
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
