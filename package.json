@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"email",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "email",
+    "description": "api documentation for [email (v0.2.6)](https://github.com/aheckmann/node-email#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-email.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-email) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-email.svg)](https://travis-ci.org/npmdoc/node-npmdoc-email)",
     "devDependencies": {
-        "email": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "email": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-email",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-email",
+    "keywords": [
+        "documentation",
+        "email"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_email.js",
+    "name": "npmdoc-email",
+    "nameAlias": "npmdoc_email",
+    "nameOriginal": "npmdoc-email",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-email"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
