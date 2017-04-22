@@ -1,6 +1,6 @@
 # npmdoc-email
 
-#### api documentation for  email (v0.2.6)  [![npm package](https://img.shields.io/npm/v/npmdoc-email.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-email) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-email.svg)](https://travis-ci.org/npmdoc/node-npmdoc-email)
+#### api documentation for  [email (v0.2.6)](https://github.com/aheckmann/node-email#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-email.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-email) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-email.svg)](https://travis-ci.org/npmdoc/node-npmdoc-email)
 
 #### A simple wrapper for sendmail.
 
@@ -21,21 +21,31 @@
 ```json
 
 {
-    "name": "email",
+    "author": {
+        "name": "Aaron Heckmann"
+    },
+    "bugs": {
+        "url": "http://github.com/aheckmann/node-email/issues"
+    },
+    "dependencies": {},
     "description": "A simple wrapper for sendmail.",
-    "version": "0.2.6",
-    "author": "Aaron Heckmann <aaron.heckmann+github@gmail.com>",
+    "devDependencies": {
+        "gleak": "0.4.0"
+    },
+    "directories": {},
+    "dist": {
+        "shasum": "96c538cf4a8a23db8bd2af7156c7b968f39abc4c",
+        "tarball": "https://registry.npmjs.org/email/-/email-0.2.6.tgz"
+    },
+    "engines": {
+        "node": ">= 0.1.92"
+    },
+    "homepage": "https://github.com/aheckmann/node-email#readme",
     "keywords": [
         "email",
         "sendmail",
         "node-email"
     ],
-    "engines": {
-        "node": ">= 0.1.92"
-    },
-    "bugs": {
-        "url": "http://github.com/aheckmann/node-email/issues"
-    },
     "licenses": [
         {
             "type": "MIT",
@@ -43,13 +53,19 @@
         }
     ],
     "main": "./index",
+    "maintainers": [
+        {
+            "name": "aaron"
+        }
+    ],
+    "name": "email",
+    "optionalDependencies": {},
     "repository": {
         "type": "git",
         "url": "git://github.com/aheckmann/node-email.git"
     },
-    "devDependencies": {
-        "gleak": "0.4.0"
-    }
+    "version": "0.2.6",
+    "bin": {}
 }
 ```
 
